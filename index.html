@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>JS Test</title>
+        <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="js/class.js"></script>
+        <script type="text/javascript" src="js/fruit.js"></script>
+        <script type="text/javascript" src="js/banana.js"></script>
+        <script type="text/javascript">
+
+            // see the above files.
+            // Everything in there is code that is not available in the global scope.
+            // We could say it's private code: nobody can execute it, not even from
+            // the debug console in the browser.
+            // One exception is the variable `MyNamespace`. All it's properties and functions
+            // can be accessed `publicly`. See below;
+
+            // (we only have to make sure we execute code after the page has completely loaded)
+            $(function() {
+
+                var fruit = new MyNamespace.Fruit();
+                fruit.whoami();
+
+                var banana = new MyNamespace.Banana();
+                banana.whoami();
+            });
+
+
+
+        </script>
+    </head>
+    <body>
+
+        <p>See debug console.</p>
+
+    </body>
+
+</html>
